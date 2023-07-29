@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/watch-icon.png">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Log In </title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-header">
+            <img src="../assets/watch-icon.png" alt="Google-Classroom-Logo">
+            <h1>
+                Log In
+            </h1>
+        </div>
+
+        <form id="form">
+
+            <div class="user-info">
+
+                <div class="label-input">
+
+                    <label for="email">Email </label>
+                    <input id="email" name="email" type="email" required placeholder="Email" tabindex="10">
+                </div>
+                <div class="label-input">
+
+                    <label for="password">Password </label>
+                    <input id="password" name="password" type="password" required placeholder="Password">
+                </div>
+            </div>
+
+            <button type="submit" id="sign-up">Log In</button>
+        </form>
+
+        <div id="forgot">
+
+        </div>
+
+        <div class="bottom-form">
+            <p>Don't have an account?</p>
+
+            <a href="../index.html">SignUp </a>
+        </div>
+
+
+
+    </div>
+    <script src="../scripts/register.js"></script>
+
+    <script>pages.submit("login")</script>
+
+</body>
+
+</html>
