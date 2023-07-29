@@ -4,10 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../assets/watch-icon.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Sign Up </title>
 </head>
 
 <body>
+
+    <div class="container">
+        <div class="form-header">
+            <img src="assets/watch-icon.png" alt="watch-Logo">
+            <h1>
+                Sign Up
+            </h1>
+        </div>
+
+        <form id="form">
+            <div class="user-info">
+
+                <div class="label-input">
+
+                    <label for="firstname">First Name </label>
+                    <input id="firstname" name="firstname" type="text" required placeholder="First Name" tabindex="10">
+                </div>
+                <div class="label-input">
+
+                    <label for="lastname">Last Name </label>
+                    <input id="lastname" name="lastname" type="text" required placeholder="Last Name" tabindex="10">
+                </div>
+                <div class="label-input">
+
+                    <label for="email">Email </label>
+                    <input id="email" name="email" type="email" required placeholder="Email" tabindex="10">
+                </div>
+                <div class="label-input">
+
+                    <label for="password">Password </label>
+                    <input id="password" name="password" type="password" required placeholder="Password">
+                </div>
+                <div class="label-input">
+
+                    <label for="check-password">Confirm Pass </label>
+                    <input id="check-password" name="check-password" type="password" required
+                        placeholder="Confirm Password">
+                </div>
+            </div>
+
+            <div class="user-type">
+                <h4>Account Type : </h4>
+                <div class="types">
+                    <div class="label-radio">
+
+                        <input required type="radio" name="type" value="0">
+                        <label for="User">User</label>
+                    </div>
+                    <div class="label-radio">
+
+                        <input required type="radio" name="type" value="1">
+                        <label for="Admin">Admin</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <button type="submit" id="sign-up">Sign Up</button>
+        </form>
+
+
+        <div class="bottom-form">
+            <p>Already have an account?</p>
+
+            <a href="templates/log_in.html">LogIn </a>
+        </div>
+
+
+
+    </div>
+
+    <script src="scripts/register.js"></script>
+
+    <script>pages.submit("signup")</script>
 
 </body>
 
