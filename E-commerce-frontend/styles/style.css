@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 15px;
+  line-height: 1.4286;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(255, 252, 232);
+}
+
+.container {
+  background: #fff;
+  padding: 1.5em;
+  margin: 3em;
+  width: 27em;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 1pt rgb(123, 123, 123) solid;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+}
+
+.form-header {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 10em;
+  width: 100%;
+}
+
+.form-header h1 {
+  margin-top: 0.5em;
+  width: 100%;
+  border-radius: 0.2em;
+  padding: 0.4em 0;
+}
+
+.form-header img {
+  width: 7em;
+  height: 6em;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  margin: 1em 0 2em 0;
+  width: 18em;
+}
+
+.label-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em 0;
+}
+
+.label-input input {
+  width: 60%;
+  padding: 0.7em 1.2em;
+}
+
+input:focus {
+  background-color: #fffbed;
+}
+
+.user-info {
+  margin-bottom: 1em;
+}
+
+.label-input label {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.user-type {
+  margin: 0 0 2em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.types {
+  display: flex;
+  justify-content: space-between;
+  width: 57%;
+  font-weight: 500;
+}
+
+button {
+  border: none;
+  background-color: rgb(87, 67, 2);
+  color: white;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0.7em 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(143, 110, 0);
+}
+
+.bottom-form {
+  width: 18em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(125, 96, 0);
+  font-weight: 800;
+  margin: 0.2em 0;
+}
+
+#forgot {
+  align-self: flex-start;
+  margin-left: 3em;
+}
+
+a:hover {
+  color: rgb(247, 183, 6);
+}
+
+#error-message {
+  color: red;
+}
+#error-password {
+  color: red;
+  font-weight: 500;
+}
+
+#error-password:hover {
+  color: rgb(255, 107, 107);
+}
