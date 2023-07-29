@@ -7,15 +7,22 @@
     <script src="https://kit.fontawesome.com/838322d488.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles/home.css">
     <link rel="icon" href="../assets/watch-icon.png">
+    <link href='https://fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
     <title>store</title>
 </head>
 
 <body>
+    <header>
+        <div class="logo-div">
+            <img class="logo" src="../assets/watch2.png" alt="Logo">
+        </div>
+        <div class="shop-name">
+            Watch
+        </div>
+    </header>
 
     <nav>
-        <div class="nav-left">
-            <span class="nav-title">Watch Store</span>
-        </div>
         <div class="nav-right">
             <a href="#">Store</a>
             <a href="./favorite.html">Favorite</a>
@@ -24,7 +31,6 @@
     </nav>
 
     <div class="home-content">
-
 
         <div class="photo-and-desc">
             <div class="card">
@@ -46,44 +52,91 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="front">
+                    <img class="collage2" src="../assets/watch1.jpg" alt="earring">
+                </div>
+                <div class="back">
+                    <ul class="product_description_list"><b>Colored Stones Bracelet</b>
+                        <li>Metal: Yellow Gold</li>
+                        <li>Gemstone: Precious Colors</li>
+                        <li>Non-Paved</li>
+                        <li>Type of Bracelets: Rigid</li>
+                        <li>Gold Weight : 11.67 g</li>
+                        <li> Colored Stones: 0.27ct</li>
+                    </ul>
+                    <div class="card-buttons">
+                        <button>Favorite</button>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="front">
+                    <img class="collage2" src="../assets/watch1.jpg" alt="earring">
+                </div>
+                <div class="back">
+                    <ul class="product_description_list"><b>Colored Stones Bracelet</b>
+                        <li>Metal: Yellow Gold</li>
+                        <li>Gemstone: Precious Colors</li>
+                        <li>Non-Paved</li>
+                        <li>Type of Bracelets: Rigid</li>
+                        <li>Gold Weight : 11.67 g</li>
+                        <li> Colored Stones: 0.27ct</li>
+                    </ul>
+                    <div class="card-buttons">
+                        <button>Favorite</button>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-
-        <!-- <ol id="cardList">
-            <li>
-                <a href="./student_stream.html">
-                    <div class="card-head">
-                        <div class="text">
-                            <div class="card-title">
-                                <h2>Class Title </h2>
-                                <span> class info</span>
-                            </div>
-                            <span class="card-title">department</span>
-                        </div>
-                        <div class="card-icon-container">
-                            <i class="fa-solid fa-ellipsis-vertical card-menu-icon" style="color: #ffffff;"></i>
-                        </div>
-                    </div>
-                </a>
-                <div class="card-body">
-                    <div class="due">
-                        <h4>Due Wednesday</h4>
-                        <a href="#">10:00 AM - Google_Classroom... </a>
-                    </div>
-                    <img src="../assets/user.png" alt="user pic">
-                </div>
-                <div class="card-footer">
-                    <div class="card-icon-container">
-                        <i class="fa-regular fa-id-badge card-footer-icon" style="color: #383838;"></i>
-                    </div>
-                    <div class="card-icon-container">
-                        <i class="fa-regular fa-folder-closed card-footer-icon" style="color: #242424;"></i>
-                    </div>
-                </div>
-            </li>
-
-        </ol> -->
     </div>
+
+    <footer class="footer">
+
+        <div class="slogan">
+            <div><img class="logo" src="../assets/watch2.png" alt="Logo"></div>
+            <div class="shop-name">
+                Watch
+            </div>
+            <div>Unleash your inner radiance:</div>
+            <div>Shop our stunning jewellery pieces now.</div>
+        </div>
+
+        <div class="socialmedia">
+            <div><b>Connect With Us</b></div><br>
+            <div class="socialmedia-item">
+                <div class="icons"><img src="../assets/insta.png" alt="insta"></div>
+                <div class="socialmedia-name">Watch</div>
+            </div>
+            <div class="socialmedia-item">
+                <div class="icons"><img src="../assets/fb2.png" alt="fb"></div>
+                <div class="socialmedia-name">Watch</div>
+            </div>
+            <div class="socialmedia-item">
+                <div class="icons"><img src="../assets/mail.png" alt="mail"></div>
+                <div class="socialmedia-name">Watch@Watch.com</div>
+            </div>
+            <div class="socialmedia-item">
+                <div class="icons"><img src="../assets/telephone-62.png" alt="telephone"></div>
+                <div class="socialmedia-name">+961 3 123456</div>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <div><b>Newsletter</b></div>
+            <form>
+                <input type="email" id="email-input" name="email" placeholder="Enter your email address">
+                <button class="subscribe-button" type="submit">Subscribe</button>
+            </form>
+            <div><img style="height: 40px; width: auto;" src="../assets/payment.png" alt="payment"></div>
+
+        </div>
+
+        </div>
+    </footer>
 
     <script src="../sources/script.js"></script>
 
