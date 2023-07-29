@@ -27,7 +27,6 @@ body {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  border: 1pt rgb(123, 123, 123) solid;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
 }
 
