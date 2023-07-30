@@ -32,6 +32,38 @@
         </div>
     </nav>
 
+
+    <div class="form-container">
+        <form id="form">
+
+            <div class="label-input">
+                <label for="product-name">Name </label>
+                <input id="product-name" name="product-name" type="text" required placeholder="Product Name"
+                    tabindex="10">
+            </div>
+
+            <div class="label-input">
+                <label for="category ">Category</label>
+                <input id="category" name="category " type="text" required placeholder="Category" tabindex="10">
+            </div>
+
+            <div class="label-input">
+                <label for="price">Price </label>
+                <input id="price" name="price" type="number" required placeholder="Price" tabindex="10">
+            </div>
+
+            <div class="label-input">
+                <label for="description ">Description</label>
+                <input id="description" name="description" type="text" required placeholder="Description" tabindex="10">
+            </div> <br>
+
+            <button type="submit" id="sign-up">Add Product</button> <br>
+            <button type="submit" onclick="window.location.href = 'admin-read.html';">View Product</button>
+        </form>
+
+
+    </div>
+
 </body>
 
 </html>

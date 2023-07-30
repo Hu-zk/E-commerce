@@ -227,7 +227,7 @@ button:hover {
   align-items: center;
 }
 
-input {
+footer input {
   border: none;
   padding: 1em;
 }
@@ -303,4 +303,43 @@ input {
 .total_price {
   margin-left: 30px;
   font-size: large;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 4em 0;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  background-color: #cacaca;
+  padding: 3em;
+}
+
+.label-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em 0;
+}
+
+.label-input input {
+  width: 60%;
+  padding: 0.7em 1.2em;
+}
+
+input:focus {
+  background-color: #fffbed;
+}
+
+.user-info {
+  margin-bottom: 1em;
+}
+
+.label-input label {
+  font-size: 1em;
+  font-weight: 600;
 }
