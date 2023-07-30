@@ -83,6 +83,7 @@ nav {
 
 .photo-and-desc {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
@@ -262,40 +263,20 @@ input {
     border-bottom: none;
   }
 
+  .photo-and-desc {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 1em;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   .footer {
     flex-direction: column;
   }
-
-  .slogan,
-  .socialmedia,
-  .newsletter {
-    flex: 1;
-    height: auto;
-  }
-
-  .socialmedia-item {
-    margin: 5px;
-  }
-  .card {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-  }
-  .card .back {
-    font-size: 5px;
-    padding: 10px;
-  }
-
-  .product_description_list {
-    font-size: 5px;
-    padding-top: 0;
-  }
-  .feedback-box {
-    width: 100%;
-    margin: 20px 0;
-  }
 }
-/* cart section */
+/* cart/favorite section */
 
 .cart-body {
   margin: 1.2em;
