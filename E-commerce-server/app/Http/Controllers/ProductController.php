@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    function getProducts()
+    {
+        $product = Product::all();
+        if ($product != null) {
+            return response()->json(["product" => $product]);
+        } else {
+            return response()->json(["status" => "failed", "message" => "No products"]);
+        }
+    }
+
+
+
     function addProduct(Request $req)
     {
         try {
@@ -57,9 +70,9 @@ class ProductController extends Controller
         $product = Product::find($req->id);
         if ($product->id != null) {
             $product->delete();
-            return json_encode(["status" => "success"]);
+            return response()->json(["status" => "success"]);
         } else {
-            return json_encode(["status" => "failed"]);
+            return response()->json(["status" => "failed"]);
         }
     }
 }
