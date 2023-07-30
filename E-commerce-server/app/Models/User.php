@@ -17,8 +17,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    const USER_TYPE = 'user';
+    const ADMIN_TYPE = 'admin';
+
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
         'email',
         'password',
     ];
@@ -30,8 +35,22 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->type === self::ADMIN_TYPE;
+    }
 
     /**
      * The attributes that should be cast.
