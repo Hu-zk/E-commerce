@@ -17,4 +17,5 @@ use App\Http\Controllers\RegisterController;
 */
 
 
-Route::get('/sign_up', [RegisterController::class, 'add_user']);
+Route::post('/sign_up', [RegisterController::class, 'add_user']);
+Route::post('/sign_in', [RegisterController::class, 'login']);
