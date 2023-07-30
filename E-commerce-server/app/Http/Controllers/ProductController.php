@@ -12,9 +12,16 @@ class ProductController extends Controller
     {
         $product = Product::all();
         if ($product != null) {
-            return response()->json(["product" => $product]);
+            return response()->json([
+                "status" => "success",
+                "product" => $product,
+                "message" => "products displayed"
+            ]);
         } else {
-            return response()->json(["status" => "failed", "message" => "No products"]);
+            return response()->json([
+                "status" => "failed",
+                "message" => "No products"
+            ]);
         }
     }
 
@@ -70,9 +77,15 @@ class ProductController extends Controller
         $product = Product::find($req->id);
         if ($product->id != null) {
             $product->delete();
-            return response()->json(["status" => "success"]);
+            return response()->json([
+                "status" => "success",
+                "message" => "product deleted"
+            ]);
         } else {
-            return response()->json(["status" => "failed"]);
+            return response()->json([
+                "status" => "failed",
+                "message" => "product deleted"
+            ]);
         }
     }
 }

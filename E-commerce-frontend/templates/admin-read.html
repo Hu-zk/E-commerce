@@ -33,7 +33,7 @@
     </nav>
 
     <div class="table-container">
-        <table id="users-table">
+        <table id="productsTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -41,14 +41,19 @@
                     <th>Price</th>
                     <th>Category</th>
                     <th>Description</th>
-                    <th>Image_url</th>
+                    <th id="image-col">Image_url</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="productsBody">
+
             </tbody>
         </table>
 
     </div>
+
+    <script src="../scripts/register.js"></script>
+
+    <script>pages.page_get_product()</script>
 
 </body>
 

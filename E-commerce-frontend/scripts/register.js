@@ -29,6 +29,23 @@ pages.postAPI = async (api_url, api_data) => {
     }
 }
 
+pages.getAPI = async (api_url) => {
+
+    try{
+        return await fetch(api_url)
+        .then(res =>{
+            return res.json()
+        } )
+        .then(data => {
+            console.log(data)
+            return data
+        })
+    
+    }catch(error){
+        pages.print_message("Error from Linking (POST) " + error)
+    }
+}
+
 pages.submit = (page) => {
     console.log("submit")
     const form = document.getElementById("form")
@@ -52,7 +69,7 @@ pages.submit = (page) => {
             forgot_div.removeChild(passwordError);
         }
 
-        if(page=="login" || page=="add_product" || page=="update_product" || password.value === check_password.value){
+        if(page!="signup" || password.value === check_password.value){
             const form_data = new FormData(form)
             const data = Object.fromEntries(form_data)
             console.log(data)
@@ -67,17 +84,58 @@ pages.submit = (page) => {
     })
 }
 
+pages.page_get_product = async () => {
+    console.log("i am in get product")
+    const get_product_url = pages.base_url + "get_products"
+    const response = await pages.getAPI(get_product_url)
+    
+    if (response.status === "success") {
+        console.log(response.message)
+
+        const productsBody = document.getElementById('productsBody');
+        response.product.forEach(product => {
+            const row = document.createElement('tr');
+
+            const idCell = document.createElement('td');
+            idCell.textContent = product.id; 
+            row.appendChild(idCell);
+
+            const nameCell = document.createElement('td');
+            nameCell.textContent = product.name;
+            row.appendChild(nameCell);
+
+            const priceCell = document.createElement('td');
+            priceCell.textContent = product.price +" $";
+            row.appendChild(priceCell);
+
+            const categoryCell = document.createElement('td');
+            categoryCell.textContent = product.category;
+            row.appendChild(categoryCell);
+            
+            const descriptionCell = document.createElement('td');
+            descriptionCell.textContent = product.description;
+            row.appendChild(descriptionCell);
+            
+            const imageCell = document.createElement('td');
+            imageCell.className = "image-col"
+            imageCell.textContent = product.image_url;
+            row.appendChild(imageCell);
+
+            productsBody.appendChild(row);
+        })
+    }else{
+        console.log(response.message)
+    }
+}
+
 pages.page_add_product = async (data) => {
     console.log("i am in add product")
     const add_product_url = pages.base_url + "add_product"
-    console.log(data)
     const response = await pages.postAPI(add_product_url,data)
     
     if (response.status === "success") {
-        console.log("i am in success")
         console.log(response.message)
     }else{
-        console.log("i am in else")
         console.log(response.message)
     }
 }
@@ -86,6 +144,18 @@ pages.page_update_product = async (data) => {
     console.log("i am in update product")
     const update_product_url = pages.base_url + "update_product"
     const response = await pages.postAPI(update_product_url,data)
+
+    if (response.status === "success") {
+        console.log(response.message)
+    }else{
+        console.log(response.message)
+    }
+}
+
+pages.page_delete_product = async (data) => {
+    console.log("i am in delete product")
+    const delete_product_url = pages.base_url + "delete_product"
+    const response = await pages.postAPI(delete_product_url,data)
 
     if (response.status === "success") {
         console.log(response.message)

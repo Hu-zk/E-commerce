@@ -247,19 +247,20 @@ footer input {
 }
 
 @media (max-width: 768px) {
-  .nav-bar {
+  nav {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: auto;
+    position: static;
   }
-
-  .nav-item {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #fff;
-  }
-
-  .nav-item:last-child {
-    border-bottom: none;
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
   }
 
   .photo-and-desc {
@@ -348,6 +349,13 @@ input:focus {
   justify-content: center;
   align-items: center;
   margin: 5em 15em;
+}
+
+.image-col {
+  max-width: 20px;
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow: auto;
 }
 
 table {
