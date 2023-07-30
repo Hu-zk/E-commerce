@@ -85,7 +85,7 @@ pages.page_login = async (data) => {
     const response = await pages.postAPI(login_url,data)
     const forgot_div = document.getElementById("forgot")
     localStorage.removeItem('myData')
-    
+
     if (response.status === "logged in") {
         localStorage.setItem('myData', JSON.stringify(response));
 
@@ -106,7 +106,7 @@ pages.page_login = async (data) => {
             const errorDiv = document.createElement("a");
             errorDiv.innerText = "Forgot your Password?";
             errorDiv.id = "error-password";
-            errorDiv.href = "./forgot_pass.html";
+            // errorDiv.href = "./forgot_pass.html";
             forgot_div.appendChild(errorDiv);
         }
     }
