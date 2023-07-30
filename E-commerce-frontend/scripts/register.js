@@ -83,20 +83,6 @@ pages.page_signup = async (data) => {
     }
 }
 
-pages.page_change_pass = async (data) => {
-    console.log("i am in change_pass")
-    const change_pass_url = pages.base_url + "change_pass.php"
-    const response = await pages.postAPI(change_pass_url,data)
-    
-    if (response.status === "success") {
-        console.log(response.message)
-        setTimeout(() => {window.location.href = `./log_in.html`;}, 1000)
-    }else{
-        console.log(response.message)
-    }
-    
-}
-
 pages.page_login = async (data) => {
     console.log("i am in login")
     const login_url = pages.base_url + "login.php"
