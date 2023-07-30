@@ -52,7 +52,7 @@ pages.submit = (page) => {
             forgot_div.removeChild(passwordError);
         }
 
-        if(page=="login" || password.value === check_password.value){
+        if(page=="login" || page=="add_product" || page=="update_product" || password.value === check_password.value){
             const form_data = new FormData(form)
             const data = Object.fromEntries(form_data)
             console.log(data)
@@ -70,11 +70,14 @@ pages.submit = (page) => {
 pages.page_add_product = async (data) => {
     console.log("i am in add product")
     const add_product_url = pages.base_url + "add_product"
+    console.log(data)
     const response = await pages.postAPI(add_product_url,data)
     
     if (response.status === "success") {
+        console.log("i am in success")
         console.log(response.message)
     }else{
+        console.log("i am in else")
         console.log(response.message)
     }
 }
@@ -82,7 +85,7 @@ pages.page_add_product = async (data) => {
 pages.page_update_product = async (data) => {
     console.log("i am in update product")
     const update_product_url = pages.base_url + "update_product"
-    const response = await pages.postAPI(add_product_url,data)
+    const response = await pages.postAPI(update_product_url,data)
 
     if (response.status === "success") {
         console.log(response.message)
