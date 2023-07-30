@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +19,7 @@ use App\Http\Controllers\RegisterController;
 
 Route::post('/sign_up', [RegisterController::class, 'add_user']);
 Route::post('/sign_in', [RegisterController::class, 'login']);
+
+Route::post('/add_product', [ProductController::class, 'addProduct']);
+Route::post('/update_product', [ProductController::class, 'updateProduct']);
+Route::post('/delete_product', [ProductController::class, 'deleteProduct']);

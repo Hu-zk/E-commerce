@@ -67,6 +67,30 @@ pages.submit = (page) => {
     })
 }
 
+pages.page_add_product = async (data) => {
+    console.log("i am in add product")
+    const add_product_url = pages.base_url + "add_product"
+    const response = await pages.postAPI(add_product_url,data)
+    
+    if (response.status === "success") {
+        console.log(response.message)
+    }else{
+        console.log(response.message)
+    }
+}
+
+pages.page_update_product = async (data) => {
+    console.log("i am in update product")
+    const update_product_url = pages.base_url + "update_product"
+    const response = await pages.postAPI(add_product_url,data)
+
+    if (response.status === "success") {
+        console.log(response.message)
+    }else{
+        console.log(response.message)
+    }
+}
+
 pages.page_signup = async (data) => {
     console.log("i am in register")
     const signup_url = pages.base_url + "sign_up"

@@ -190,6 +190,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   background-color: #d5d1cb;
+  width: 100vw;
   flex-shrink: 0;
 }
 

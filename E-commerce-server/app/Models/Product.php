@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'category', 'image_url',
+        'name', 'price', 'description', 'category', 'image_url',
     ];
 
     public function favorites()
