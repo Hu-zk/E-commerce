@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 
@@ -31,6 +32,29 @@ class PurchaseController extends Controller
             return response()->json([
                 "status" => "failed",
                 "message" => $th
+            ]);
+        }
+    }
+
+    function addToFavorite(Request $req)
+    {
+
+        $product = Favorite::where('user_id', $req->user_id)->where('product_id', $req->product_id)->first();
+        if ($product == null) {
+            $slot = Favorite::create(
+                [
+                    'user_id' => $req->user_id,
+                    'product_id' => $req->product_id,
+                ]
+            );
+            return response()->json([
+                "status" => "success",
+                "message" => "product added"
+            ]);
+        } else {
+            return response()->json([
+                "status" => "failed",
+                "message" => "already favorite"
             ]);
         }
     }

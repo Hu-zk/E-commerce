@@ -27,3 +27,4 @@ Route::post('/delete_product', [ProductController::class, 'deleteProduct']);
 Route::get('/get_products', [ProductController::class, 'getProducts']);
 
 Route::post('/add_to_cart', [PurchaseController::class, 'addToCart']);
+Route::post('/add_to_favorite', [PurchaseController::class, 'addToFavorite']);

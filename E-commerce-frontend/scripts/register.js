@@ -144,10 +144,6 @@ pages.page_display_product = async () => {
             const user_id = parsedData.user.id
             const data = {user_id: user_id,product_id: product_id};
             pages.page_add_to_cart(data)
-            // console.log(parsedData)
-            // console.log(user_id)
-            // console.log(product_id);
-            // console.log(data);
 
         })
         });
