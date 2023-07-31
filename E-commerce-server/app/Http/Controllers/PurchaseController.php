@@ -86,4 +86,31 @@ class PurchaseController extends Controller
             ]);
         }
     }
+
+    function getFavoriteProduct(Request $req)
+    {
+        $favorite = Favorite::where('user_id', $req->user_id)->with("product")->get();
+
+        if ($favorite->count() > 0) {
+            return response()->json([
+                "status" => "success",
+                "message" => "products displayed",
+                "product" => $favorite->map(function ($favoriteItem) {
+                    return [
+                        'id' => $favoriteItem->product->id,
+                        'name' => $favoriteItem->product->name,
+                        'price' => $favoriteItem->product->price,
+                        'category' => $favoriteItem->product->category,
+                        'description' => $favoriteItem->product->description,
+                        'quantity' => $favoriteItem->quantity,
+                    ];
+                }),
+            ]);
+        } else {
+            return response()->json([
+                "status" => "failed",
+                "message" => "No products"
+            ]);
+        }
+    }
 }

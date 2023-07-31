@@ -92,10 +92,10 @@ pages.page_display_product = async () => {
     
     if (response.status === "success") 
     {
-        console.log(response.message)
+        
         const product_List = document.getElementById('product-list');
-
-        response.product.forEach((data)=>{
+        
+        response.product.forEach((data)=>{     
             const product_elemet = document.createElement('div');
             product_elemet.innerHTML =
             `<div class="card">
@@ -123,12 +123,12 @@ pages.page_display_product = async () => {
 
         favoriteButtons.forEach((button) => {
             button.addEventListener("click", async (event) => {
-            const product_id = button.id.slice(3);     
-            const user_data = localStorage.getItem("myData");
-            const parsedData = JSON.parse(user_data);
-        
-            const user_id = parsedData.user.id
-            const data = {user_id: user_id,product_id: product_id};
+                const product_id = button.id.slice(3);     
+                const user_data = localStorage.getItem("myData");
+                const parsedData = JSON.parse(user_data);
+            
+                const user_id = parsedData.user.id
+                const data = {user_id: user_id,product_id: product_id};
             pages.page_add_to_favorite(data)
             
         });
@@ -137,7 +137,6 @@ pages.page_display_product = async () => {
     addToCartButtons.forEach((button) => {
         button.addEventListener("click", async (event) => {
             const product_id = button.id.slice(4);    
-
             const user_data = localStorage.getItem("myData");
             const parsedData = JSON.parse(user_data);
 
@@ -156,7 +155,6 @@ pages.page_display_product = async () => {
 
 pages.page_add_to_cart = async(data)=>{
     console.log("i am in add to cart")
-    console.log(data)
     const add_to_cart_url = pages.base_url + "add_to_cart"
     const response = await pages.postAPI(add_to_cart_url,data)
     
@@ -187,7 +185,7 @@ pages.page_get_favorite_product = async () => {
     console.log("i am in favorit get product")
     const data = JSON.parse(localStorage.getItem('favoriteProducts'));
 
-    const get_favorite_product_url = pages.base_url + "get_cart_product"
+    const get_favorite_product_url = pages.base_url + "get_favorite_product"
     const response = await pages.postAPI(get_favorite_product_url,data)
     
     if (response.status === "success") {
@@ -225,19 +223,25 @@ pages.page_get_cart_product = async () => {
     
     if (response.status === "success") {
         console.log(response.message)
+        
+        let total_element = document.getElementById("total");
+        let total = parseInt(total_element.textContent, 10);
 
         const productsBody = document.getElementById('productsBody');
         response.product.forEach(product => {
-            const row = document.createElement('tr');
 
+            total=total +product.price*product.quantity
+
+            const row = document.createElement('tr');
+            
             const nameCell = document.createElement('td');
             nameCell.textContent = product.name;
             row.appendChild(nameCell);
-
+            
             const priceCell = document.createElement('td');
-            priceCell.textContent = product.price +" $";
+            priceCell.textContent = product.price*product.quantity +" $";
             row.appendChild(priceCell);
-
+            
             const categoryCell = document.createElement('td');
             categoryCell.textContent = product.category;
             row.appendChild(categoryCell);
@@ -245,9 +249,10 @@ pages.page_get_cart_product = async () => {
             const quantityCell = document.createElement('td');
             quantityCell.textContent = product.quantity;
             row.appendChild(quantityCell);
-
+            
             productsBody.appendChild(row);
         })
+        total_element.textContent= total
     }else{
         console.log(response.message)
     }
@@ -352,6 +357,7 @@ pages.page_login = async (data) => {
     const response = await pages.postAPI(login_url,data)
     const forgot_div = document.getElementById("forgot")
     localStorage.removeItem('myData')
+    localStorage.clear()
 
     if (response.status === "logged in") {
         localStorage.setItem('myData', JSON.stringify(response));

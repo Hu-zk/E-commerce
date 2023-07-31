@@ -29,3 +29,4 @@ Route::get('/get_products', [ProductController::class, 'getProducts']);
 Route::post('/add_to_cart', [PurchaseController::class, 'addToCart']);
 Route::post('/add_to_favorite', [PurchaseController::class, 'addToFavorite']);
 Route::post('/get_cart_product', [PurchaseController::class, 'getCartProduct']);
+Route::post('/get_favorite_product', [PurchaseController::class, 'getFavoriteProduct']);
