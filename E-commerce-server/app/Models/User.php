@@ -18,9 +18,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    const USER_TYPE = 'user';
-    const ADMIN_TYPE = 'admin';
-
     protected $fillable = [
         'firstname',
         'lastname',
@@ -48,10 +45,6 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
-    public function isAdmin()
-    {
-        return $this->type === self::ADMIN_TYPE;
-    }
 
     /**
      * The attributes that should be cast.
