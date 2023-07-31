@@ -82,7 +82,7 @@ nav {
 .photo-and-desc {
   display: flex;
   flex-wrap: wrap;
-  gap: 2em;
+  gap: 5em;
   justify-content: space-around;
   align-items: center;
 }
