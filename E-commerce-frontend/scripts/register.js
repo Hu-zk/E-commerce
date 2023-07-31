@@ -162,6 +162,8 @@ pages.page_add_to_cart = async(data)=>{
     
     if (response.status === "success") {
         console.log(response.message)
+        localStorage.setItem('cartProducts', JSON.stringify(data));
+
     }else{
         console.log(response.message)
     }
@@ -169,17 +171,87 @@ pages.page_add_to_cart = async(data)=>{
 
 pages.page_add_to_favorite = async(data)=>{
     console.log("i am in add to favorite")
-    console.log(data)
     const add_to_favorite_url = pages.base_url + "add_to_favorite"
     const response = await pages.postAPI(add_to_favorite_url,data)
     
     if (response.status === "success") {
         console.log(response.message)
+        localStorage.setItem('favoriteProducts', JSON.stringify(data));
     }else{
         console.log(response.message)
     }
 }
 
+
+pages.page_get_favorite_product = async () => {
+    console.log("i am in favorit get product")
+    const data = JSON.parse(localStorage.getItem('favoriteProducts'));
+
+    const get_favorite_product_url = pages.base_url + "get_cart_product"
+    const response = await pages.postAPI(get_favorite_product_url,data)
+    
+    if (response.status === "success") {
+        console.log(response.message)
+
+        const productsBody = document.getElementById('productsBody');
+        response.product.forEach(product => {
+            const row = document.createElement('tr');
+
+            const nameCell = document.createElement('td');
+            nameCell.textContent = product.name;
+            row.appendChild(nameCell);
+
+            const priceCell = document.createElement('td');
+            priceCell.textContent = product.price +" $";
+            row.appendChild(priceCell);
+
+            const categoryCell = document.createElement('td');
+            categoryCell.textContent = product.category;
+            row.appendChild(categoryCell);
+            
+            productsBody.appendChild(row);
+        })
+    }else{
+        console.log(response.message)
+    }
+}
+
+pages.page_get_cart_product = async () => {
+    console.log("i am in get cart product")
+    const data = JSON.parse(localStorage.getItem('cartProducts'));
+
+    const get_cart_product_url = pages.base_url + "get_cart_product"
+    const response = await pages.postAPI(get_cart_product_url,data)
+    
+    if (response.status === "success") {
+        console.log(response.message)
+
+        const productsBody = document.getElementById('productsBody');
+        response.product.forEach(product => {
+            const row = document.createElement('tr');
+
+            const nameCell = document.createElement('td');
+            nameCell.textContent = product.name;
+            row.appendChild(nameCell);
+
+            const priceCell = document.createElement('td');
+            priceCell.textContent = product.price +" $";
+            row.appendChild(priceCell);
+
+            const categoryCell = document.createElement('td');
+            categoryCell.textContent = product.category;
+            row.appendChild(categoryCell);
+            
+            const quantityCell = document.createElement('td');
+            quantityCell.textContent = product.quantity;
+            row.appendChild(quantityCell);
+
+            productsBody.appendChild(row);
+        })
+    }else{
+        console.log(response.message)
+    }
+}
 
 pages.page_get_product = async () => {
     console.log("i am in get product")

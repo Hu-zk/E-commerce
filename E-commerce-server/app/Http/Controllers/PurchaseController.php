@@ -63,13 +63,12 @@ class PurchaseController extends Controller
     function getCartProduct(Request $req)
     {
         $cart = Cart::where('user_id', $req->user_id)->with("product")->get();
-        // $product = Product::where('id', $cart->product_id)->get();
 
         if ($cart->count() > 0) {
             return response()->json([
                 "status" => "success",
                 "message" => "products displayed",
-                "products" => $cart->map(function ($cartItem) {
+                "product" => $cart->map(function ($cartItem) {
                     return [
                         'id' => $cartItem->product->id,
                         'name' => $cartItem->product->name,
