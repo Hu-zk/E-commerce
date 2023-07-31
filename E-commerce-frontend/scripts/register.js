@@ -123,13 +123,13 @@ pages.page_display_product = async () => {
 
         favoriteButtons.forEach((button) => {
             button.addEventListener("click", async (event) => {
-            const productId = button.id.slice(3);     
+            const product_id = button.id.slice(3);     
             const user_data = localStorage.getItem("myData");
             const parsedData = JSON.parse(user_data);
         
             const user_id = parsedData.user.id
             const data = {user_id: user_id,product_id: product_id};
-            pages.page_add_to_favorite = (data)
+            pages.page_add_to_favorite(data)
             
         });
     });
