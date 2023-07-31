@@ -50,7 +50,7 @@ pages.submit = (page) => {
     console.log("submit")
     const form = document.getElementById("form")
 
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit',async (event) => {
         
         console.log("i am in submit")
         event.preventDefault()
@@ -60,6 +60,7 @@ pages.submit = (page) => {
         
         const forgot_div = document.getElementById("forgot")
         const existingError = document.getElementById("error-message");
+
         if (existingError) {
             form.removeChild(existingError);
         }
@@ -74,7 +75,7 @@ pages.submit = (page) => {
             const data = Object.fromEntries(form_data)
             console.log(data)
             pages.loadFor(page,data)
-        }else {
+        } else {
             
             const errorDiv = document.createElement("div");
             errorDiv.innerText = "Passwords do not match. Try again.";
@@ -82,6 +83,44 @@ pages.submit = (page) => {
             form.appendChild(errorDiv);
         }
     })
+}
+
+pages.page_display_product = async () => {
+    console.log("i am in display product")
+    const get_product_url = pages.base_url + "get_products"
+    const response = await pages.getAPI(get_product_url)
+    
+    if (response.status === "success") {
+        console.log(response.message)
+        const product_List = document.getElementById('product-list');
+
+        response.product.forEach((data)=>{
+            const product_elemet = document.createElement('div');
+            product_elemet.innerHTML =
+            `<div class="card">
+            <div class="front">
+                <img class="collage2" src="${data.image_url}" alt="watch photo">
+            </div>
+            <div class="back">
+            <ul class="product_description_list"><b>${data.name}</b>
+                    <li>Price: ${data.price}$</li>
+                    <li>Category: ${data.category}</li>
+                    <li>Discreption: ${data.description}</li>
+                </ul>
+                <div class="card-buttons">
+                    <button>Favorite</button>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>`
+        product_List.appendChild(product_elemet);
+
+        })
+
+        
+    }else{
+        console.log(response.message)
+    }
 }
 
 pages.page_get_product = async () => {
@@ -130,6 +169,7 @@ pages.page_get_product = async () => {
 
 pages.page_add_product = async (data) => {
     console.log("i am in add product")
+    console.log(data)
     const add_product_url = pages.base_url + "add_product"
     const response = await pages.postAPI(add_product_url,data)
     
