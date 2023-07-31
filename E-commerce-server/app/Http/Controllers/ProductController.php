@@ -35,10 +35,12 @@ class ProductController extends Controller
                 'price' => $req->price,
                 'category' => $req->category,
                 'description' => $req->description,
+                // 'image_url' => $req->image_url->store('product_images', 'public'),
                 'image_url' => $req->image_url,
             ]);
 
             return response()->json([
+
                 "status" => "success",
                 "message" => "product added"
             ]);
