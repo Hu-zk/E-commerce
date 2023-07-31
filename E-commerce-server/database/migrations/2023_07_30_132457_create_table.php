@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('category');
             $table->string('description');
-            $table->string('image_url');
+            $table->text('image_url');
             $table->timestamps();
         });
     }
