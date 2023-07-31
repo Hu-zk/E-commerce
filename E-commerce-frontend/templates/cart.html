@@ -31,19 +31,35 @@
 
     <section class="cart-body">
 
-        <h1 class="cart_title">SHOPPING CART</h1>
-        <p class="total_price">Total=<span id="total">0</span>$</p>
-        <div class="cart_items" id="cart">
+        <div class="title-body">
 
+            <div class="cart-title">
+                <h1 class="cart_title">SHOPPING CART</h1>
+                <p class="total_price">Total=<span id="total">0</span>$</p>
+            </div>
+
+
+            <div class="cart_items" id="cart">
+                <table id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cart-footer">
             <p class="empty_cart">Your cart is empty.</p>
             <button type="button" class="browse_button" onclick="window.location.href = 'store.html';">Browse
                 Store</button>
+        </div>
 
-        </div>
-        <div style="display: none;">
-            <div id="cart_product1"></div>
-            <div id="cart_product2"></div>
-        </div>
     </section>
 
 
@@ -91,7 +107,7 @@
         </div>
     </footer>
 
-    <script src="../sources/script.js"></script>
+    <script src="../scripts/register.js"></script>
 
 </body>
 

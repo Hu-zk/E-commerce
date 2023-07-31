@@ -25,8 +25,6 @@ class ProductController extends Controller
         }
     }
 
-
-
     function addProduct(Request $req)
     {
         try {

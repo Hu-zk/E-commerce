@@ -90,7 +90,8 @@ pages.page_display_product = async () => {
     const get_product_url = pages.base_url + "get_products"
     const response = await pages.getAPI(get_product_url)
     
-    if (response.status === "success") {
+    if (response.status === "success") 
+    {
         console.log(response.message)
         const product_List = document.getElementById('product-list');
 
@@ -108,20 +109,81 @@ pages.page_display_product = async () => {
                     <li>Discreption: ${data.description}</li>
                 </ul>
                 <div class="card-buttons">
-                    <button>Favorite</button>
-                    <button>Add to Cart</button>
+                    <button class="favorite-btn" id="fav${data.id}">Favorite</button>
+                    <button class="add-to-cart-btn" id="cart${data.id}">Add to Cart</button>
                 </div>
             </div>
-        </div>`
-        product_List.appendChild(product_elemet);
-
+            </div>`
+            product_List.appendChild(product_elemet);
         })
 
+
+        const favoriteButtons = document.querySelectorAll(".favorite-btn");
+        const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+
+        favoriteButtons.forEach((button) => {
+            button.addEventListener("click", async (event) => {
+            const productId = button.id.slice(3);     
+            const user_data = localStorage.getItem("myData");
+            const parsedData = JSON.parse(user_data);
         
+            const user_id = parsedData.user.id
+            const data = {user_id: user_id,product_id: product_id};
+            pages.page_add_to_favorite = (data)
+            
+        });
+    });
+    
+    addToCartButtons.forEach((button) => {
+        button.addEventListener("click", async (event) => {
+            const product_id = button.id.slice(4);    
+
+            const user_data = localStorage.getItem("myData");
+            const parsedData = JSON.parse(user_data);
+
+            const user_id = parsedData.user.id
+            const data = {user_id: user_id,product_id: product_id};
+            pages.page_add_to_cart(data)
+            // console.log(parsedData)
+            // console.log(user_id)
+            // console.log(product_id);
+            // console.log(data);
+
+        })
+        });
+    
+    }else{
+        console.log(response.message)
+    }
+    
+}
+
+pages.page_add_to_cart = async(data)=>{
+    console.log("i am in add to cart")
+    console.log(data)
+    const add_to_cart_url = pages.base_url + "add_to_cart"
+    const response = await pages.postAPI(add_to_cart_url,data)
+    
+    if (response.status === "success") {
+        console.log(response.message)
     }else{
         console.log(response.message)
     }
 }
+
+pages.page_add_to_favorite = async(data)=>{
+    console.log("i am in add to favorite")
+    console.log(data)
+    const add_to_favorite_url = pages.base_url + "add_to_favorite"
+    const response = await pages.postAPI(add_to_favorite_url,data)
+    
+    if (response.status === "success") {
+        console.log(response.message)
+    }else{
+        console.log(response.message)
+    }
+}
+
 
 pages.page_get_product = async () => {
     console.log("i am in get product")
